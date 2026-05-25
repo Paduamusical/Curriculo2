@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currículo - Antonio de Pádua Ferreira da Silva</title>
+  <style>
+    :root {
+      --bg: #050b14;
+      --panel: rgba(10, 18, 32, 0.92);
+      --panel2: rgba(14, 26, 44, 0.96);
+      --text: #eef6ff;
+      --muted: #b8c8da;
+      --accent: #4db6ff;
+      --accent2: #1f7fd6;
+      --metal: linear-gradient(135deg, #0d3f6d, #1f6fbf, #7cc7ff, #0b4b86);
+      --border: rgba(124, 199, 255, 0.28);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(77, 182, 255, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(31, 127, 214, 0.18), transparent 35%),
+        linear-gradient(135deg, #02060d, #07111f 45%, #0b1a2d);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 28px;
+    }
+
+    .resume {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 2px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .resume::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(77,182,255,0.08), transparent 40%, rgba(31,127,214,0.08));
+      pointer-events: none;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(8, 18, 32, 0.98), rgba(12, 28, 50, 0.98));
+      border-bottom: 1px solid rgba(124, 199, 255, 0.18);
+      align-items: center;
+    }
+
+    .photo-frame {
+      width: 240px;
+      height: 300px;
+      border-radius: 22px;
+      padding: 8px;
+      background: var(--metal);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 12px 30px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+      transform: translateX(-120%);
+      animation: shine 4s infinite;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      background: #0d1726;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-120%); }
+      50% { transform: translateX(120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    .title-block h1 {
+      font-size: 2.2rem;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      color: #ffffff;
+      text-shadow: 0 0 18px rgba(77, 182, 255, 0.18);
+    }
+
+    .title-block .role {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(77, 182, 255, 0.12);
+      border: 1px solid rgba(77, 182, 255, 0.28);
+      color: #d9f0ff;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .contact {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .contact strong {
+      color: var(--text);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--panel2);
+      border: 1px solid rgba(124, 199, 255, 0.16);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .section {
+      margin-bottom: 22px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .item {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(124, 199, 255, 0.12);
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .item h3 {
+      font-size: 1rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .meta {
+      color: #8fc8ff;
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+
+    .item p, .section p, li {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.96rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(77, 182, 255, 0.12);
+      border: 1px solid rgba(77, 182, 255, 0.22);
+      color: #eaf6ff;
+      font-size: 0.92rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-2px);
+      background: rgba(77, 182, 255, 0.2);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(31,127,214,0.18), rgba(77,182,255,0.08));
+      border: 1px solid rgba(124, 199, 255, 0.22);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .highlight-box h3 {
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .footer-note {
+      padding: 0 24px 24px;
+      color: #8fb9dd;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .header,
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-frame {
+        width: 100%;
+        max-width: 260px;
+        height: 320px;
+        margin: 0 auto;
+      }
+
+      .title-block {
+        text-align: center;
+      }
+
+      .contact {
+        justify-items: center;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .resume {
+        box-shadow: none;
+        border: none;
+      }
+
+      .photo-frame::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="resume">
+    <section class="header">
+      <div class="photo-frame">
+        <img src="p2.jpg" alt="Foto de Antonio de Pádua Ferreira da Silva" />
+      </div>
+
+      <div class="title-block">
+        <h1>Antonio de Pádua Ferreira da Silva</h1>
+        <div class="role">TI | Balconista / Auxiliar de Padaria</div>
+
+        <div class="contact">
+          <div><strong>Endereço:</strong> Avenida Agenor Araújo, 254 — Jardim Iguatu</div>
+          <div><strong>Telefone:</strong> (88) 98184-4387</div>
+          <div><strong>E-mail:</strong> sistematdesenvolvimento@gmail.com</div>
+          <div><strong>CPF:</strong> 765.334.763-00</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="card">
+        <div class="section">
+          <h2>Objetivo</h2>
+          <div class="highlight-box">
+            <h3>Área de TI com suporte para padaria</h3>
+            <p>
+              Atuar na área de Análise e Desenvolvimento de Sistemas, contribuindo com soluções tecnológicas inovadoras,
+              ao mesmo tempo em que oferece suporte em funções de padaria, como balconista e auxiliar, com responsabilidade,
+              organização e bom atendimento ao cliente.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Resumo Profissional</h2>
+          <p>
+            Profissional com experiência em tecnologia, música, educação e serviços diversos. Possui vivência em
+            desenvolvimento de sistemas, manutenção de computadores, banco de dados, web e programação, além de
+            experiência como auxiliar de padaria, com atuação em atendimento, organização e apoio operacional.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Experiência Profissional</h2>
+
+          <div class="item">
+            <h3>Auxiliar de Padaria — Atacadão Lag</h3>
+            <p>
+              Apoio no atendimento ao cliente, organização do balcão, reposição de produtos e suporte nas rotinas
+              do setor de padaria.
+            </p>
+          </div>
+
+          <div class="item">
+            <h3>Sócio Educador — Complexo Mais Infância (Governo do Estado)</h3>
+            <p>
+              Atuação em atividades socioeducativas e apoio em ações voltadas ao desenvolvimento humano e cultural.
+            </p>
+          </div>
+
+          <div class="item">
+            <h3>Professor de Música — SESC Iguatu</h3>
+            <p>
+              Atuação como professor de música nas áreas de teclado, violão, acordeom, canto coral e flauta doce.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Formação Acadêmica</h2>
+          <div class="item">
+            <h3>Curso Superior em Análise e Desenvolvimento de Sistemas</h3>
+            <div class="meta">Faculdade de Medicina Estácio — 2019</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Projetos Acadêmicos e Pessoais</h2>
+          <div class="item">
+            <h3>Sistema de Controle de Estoque</h3>
+            <p>Aplicação desktop em Java para gerenciamento de produtos e fornecedores.</p>
+          </div>
+          <div class="item">
+            <h3>Site Responsivo</h3>
+            <p>Criação de página web com HTML, CSS e JavaScript, com foco em design responsivo.</p>
+          </div>
+          <div class="item">
+            <h3>Banco de Dados Escolar</h3>
+            <p>Modelagem e implementação de banco de dados relacional para cadastro de alunos e professores.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section">
+          <h2>Competências Técnicas</h2>
+          <div class="skills">
+            <span class="skill">Java</span>
+            <span class="skill">Python</span>
+            <span class="skill">C#</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS3</span>
+            <span class="skill">React</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">PostgreSQL</span>
+            <span class="skill">SQL Server</span>
+            <span class="skill">Git/GitHub</span>
+            <span class="skill">UML</span>
+            <span class="skill">Prompt IA</span>
+            <span class="skill">Android Studio</span>
+            <span class="skill">Windows Server</span>
+            <span class="skill">Manutenção de Computadores</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Cursos e Certificações</h2>
+          <div class="item">
+            <p>Lógica de Programação</p>
+            <p>Desenvolvimento Web</p>
+            <p>Git e GitHub</p>
+            <p>Windows Server</p>
+            <p>Montagem e Manutenção de Computadores</p>
+            <p>Banco de Dados</p>
+            <p>Android Studio</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Idiomas</h2>
+          <div class="item">
+            <p><strong>Português:</strong> Nativo</p>
+            <p><strong>Inglês:</strong> Básico / Intermediário (leitura técnica)</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Habilidades Extras</h2>
+          <div class="skills">
+            <span class="skill">Auxiliar de Padaria</span>
+            <span class="skill">Balconista</span>
+            <span class="skill">Soldador</span>
+            <span class="skill">Eletricista</span>
+            <span class="skill">Motorista CNH A e B</span>
+            <span class="skill">Serralheiro</span>
+            <span class="skill">Músico</span>
+            <span class="skill">Produtor Musical</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      Currículo moderno com foco em TI e suporte para funções de padaria.
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const resume = document.querySelector(".resume");
+      resume.style.opacity = "0";
+      resume.style.transform = "translateY(20px)";
+      resume.style.transition = "all 0.8s ease";
+      requestAnimationFrame(() => {
+        resume.style.opacity = "1";
+        resume.style.transform = "translateY(0)";
+      });
+    });
+  </script>
+</body>
+</html>
